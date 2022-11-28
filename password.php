@@ -11,7 +11,7 @@ session_start();
     <title>Document</title>
 </head>
 <body>
-    <h2> <?php echo $_SESSION["password"] ?> </h2>
+    <h2>La tua password è : <?php echo $_SESSION["password"] ?> </h2>
     <a href="index.php">Genera un'altra password</a>
 </body>
 </html>
