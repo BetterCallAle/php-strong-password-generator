@@ -7,19 +7,26 @@ function take_rdn_letter_from_string($string){
     return substr($string, rand(0, strlen($string)), 1);
 }
 
-// Function for generate a random password
-function generate_rdn_password($letters, $symbols){
-    // take a random letter from string
-    $rdn_letter = take_rdn_letter_from_string($letters);
-    // take a random number from 0 to 9
-    $rdn_number = rand(0, 9);
-    // take a radom letter from string and make it uppercase
-    $rnd_letter_upper = strtoupper(take_rdn_letter_from_string($letters));
-    // take a random symbol
-    $rnd_symbol = take_rdn_letter_from_string($symbols);
+// Function for generate a random string
+function generate_rdn_string($letters, $symbols, $length){
+    // create a variable for storing the long generated password
+    $temp_pass = "";
 
-    // return all the variables combined
-    return $rdn_letter . $rdn_number . $rnd_letter_upper . $rnd_symbol;
+    for($i = 0; $i <= $length; $i++){
+        // take a random letter from string
+        $rdn_letter = take_rdn_letter_from_string($letters);
+        // take a random number from 0 to 9
+        $rdn_number = rand(0, 9);
+        // take a radom letter from string and make it uppercase
+        $rnd_letter_upper = strtoupper(take_rdn_letter_from_string($letters));
+        // take a random symbol
+        $rnd_symbol = take_rdn_letter_from_string($symbols);
+    
+        // return all the variables combined
+        $temp_pass .= $rdn_letter . $rdn_number . $rnd_letter_upper . $rnd_symbol;
+    }
+
+    return substr($temp_pass, 0, $length);
 }
 
 ?>

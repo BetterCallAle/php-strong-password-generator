@@ -1,19 +1,12 @@
 <?php 
 require_once __DIR__ . "./partials/function.php";
 
-
 if($user_length){
-    // create a variable for storing the long generated password
-    $temp_pass = "";
-    //make a for loop with $user_length as loop length to make sure that the string will always be longer than user choice
-    for($i = 0; $i <= $user_length; $i++){
-        $temp_pass .= generate_rdn_password($all_letters, $all_symbols);
-    }
-
+    
     session_start();
 
     // create a string as long as $user_lenght and save it in the session
-    $_SESSION["password"] = substr($temp_pass, 0, $user_length);
+    $_SESSION["password"] = generate_rdn_string($all_letters, $all_symbols, $user_length);
     header("Location: ./password.php");
 }
 ?>
