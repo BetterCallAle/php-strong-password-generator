@@ -48,7 +48,4 @@ function generate_rdn_password($length, $get_array){
 
     return substr($temp_pass, 0, $length);
 }
-
-
-
 ?>
